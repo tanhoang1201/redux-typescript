@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply font-primary text-[#333];
+	}
+}
+
+@layer components {
+	.input-style {
+		@apply block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500;
+	}
+
+	.input-label {
+		@apply mb-2 block text-sm font-medium text-gray-900 dark:text-gray-300;
+	}
+}
