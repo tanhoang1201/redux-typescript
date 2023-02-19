@@ -1,43 +1,21 @@
-// import React, { InputHTMLAttributes } from 'react';
-
-// interface IProps extends InputHTMLAttributes<HTMLInputElement> {
-// 	label?: string;
-// }
-
-// function InputGroup({ label, ...rest }: IProps) {
-// 	return (
-// 		<div className='mb-6'>
-// 			<label htmlFor={rest.id} className='input-label'>
-// 				{label}
-// 			</label>
-// 			<input className='input-style' {...rest} />
-// 		</div>
-// 	);
-// }
-
-// export default InputGroup;
-
 import React, { InputHTMLAttributes } from 'react';
+import { UseFormRegister, Path } from 'react-hook-form';
+import { Post } from '../../../@types';
 
-type IState<T1 extends keyof JSX.IntrinsicElements> = {};
-
-type IProps<T extends keyof JSX.IntrinsicElements> = {
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 	label?: string;
-	elementType: T;
-} & JSX.IntrinsicElements[T];
+	id: Path<Post>;
+	classes?: string;
+	register: UseFormRegister<Post>;
+}
 
-function InputGroup<T extends keyof JSX.IntrinsicElements>({
-	label,
-	elementType,
-	...rest
-}: IProps<T>) {
-	let Com = ;
+function InputGroup({ label, classes, register, id, ...rest }: IProps) {
 	return (
 		<div className='mb-6'>
-			<label htmlFor={rest.id} className='input-label'>
+			<label htmlFor={id} className={`input-label ${classes}`}>
 				{label}
 			</label>
-			<Com className='input-style' {...rest} />
+			<input className='input-style' {...rest} {...register(id)} />
 		</div>
 	);
 }

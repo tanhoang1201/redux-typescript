@@ -1,7 +1,13 @@
-import React from 'react';
+import BlogForm from './BlogForm';
+import BlogList from './BlogList';
 
 const Blog = () => {
-	return <div>Blog</div>;
+	return (
+		<div className='p-5'>
+			<BlogForm />
+			<BlogList />
+		</div>
+	);
 };
 
 export default Blog;
